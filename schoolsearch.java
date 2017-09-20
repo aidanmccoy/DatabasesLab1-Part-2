@@ -96,9 +96,21 @@ public class schoolsearch {
 					case 'I':
 						Info(students);
 						break;
+
+					case 'C':
+						if (fullCommand.charAt(fullCommand.length() - 1) == 'T') {
+							key = fullCommand.substring(3, 6);
+							ClassroomTeacher(teachers,  Integer.parseInt(key));
+						} else {
+							key = fullCommand.substring(3);
+							Classroom(students, Integer.parseInt(key));
+						}
+						break;
+
 					case 'Q':
 						System.exit(0);
 						break;
+
 					default:
 						System.out.println("Invalid Command...");
 						break;
@@ -262,6 +274,23 @@ public class schoolsearch {
 		System.out.println("4: " + fourth);
 		System.out.println("5: " + fifth);
 		System.out.println("6: " + sixth);
+		System.out.println("---------------------------");
+	}
+	public static void Classroom(ArrayList<Student> students, int key) {
+		for (Student student : students) {
+			if (student.getClassroom() == key) {
+				System.out.println(student.getStLastName() + ", " + student.getStFirstName());
+			}
+		}
+		System.out.println("---------------------------");
+	}
+
+	public static void ClassroomTeacher(ArrayList<Teacher> teachers, int key) {
+		for (Teacher teacher : teachers) {
+			if (teacher.getClassroom() == key) {
+				System.out.println(teacher.getTLastName() + ", " + teacher.getTFirstName());
+			}
+		}
 		System.out.println("---------------------------");
 	}
 }
