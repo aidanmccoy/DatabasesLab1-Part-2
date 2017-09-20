@@ -26,7 +26,7 @@ public class Teacher {
    public void print() {
       System.out.println("Last Name is - " + tLastName);
       System.out.println("First Name is - " + tFirstName);
-      System.out.println("Classroom is - " + classsroom);
+      System.out.println("Classroom is - " + classroom);
       System.out.println("----------------------------------");
    }
 
