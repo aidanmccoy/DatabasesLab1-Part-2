@@ -70,10 +70,10 @@ public class schoolsearch {
 						SearchTeacher(students, teachers, key);
 						break;
 
-					/*case 'B':
+					case 'B':
 						key = fullCommand.substring(3);
 						SearchBus(students, Integer.parseInt(key));
-						break;*/
+						break;
 
 					case 'G':
 						if (fullCommand.charAt(fullCommand.length() - 1) == 'H') {
@@ -159,14 +159,14 @@ public class schoolsearch {
 		System.out.println("---------------------------");
 	}
 
-	/*private static void SearchBus(ArrayList<Student> students, int key) {
+	private static void SearchBus(ArrayList<Student> students, int key) {
 		for (Student student : students) {
 			if (student.getBus() == key) {
 				System.out.println(student.getStLastName() + ", " + student.getStFirstName());
 			}
 		}
 		System.out.println("---------------------------");
-	} */
+	}
 
 	private static void SearchGradeLow(ArrayList<Student> students, ArrayList<Teacher> teachers, int key) {
 		Student lStudent = null;
