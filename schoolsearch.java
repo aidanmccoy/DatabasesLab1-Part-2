@@ -65,12 +65,12 @@ public class schoolsearch {
 						}
 						break;
 
-					/*case 'T':
+					case 'T':
 						key = fullCommand.substring(3);
-						SearchTeacher(students, key);
+						SearchTeacher(students, teachers, key);
 						break;
 
-					case 'B':
+					/*case 'B':
 						key = fullCommand.substring(3);
 						SearchBus(students, Integer.parseInt(key));
 						break;
@@ -134,16 +134,23 @@ public class schoolsearch {
 		System.out.println("---------------------------");
 	}
 
-	/*public static void SearchTeacher(ArrayList<Student> students, String key) {
+	public static void SearchTeacher(ArrayList<Student> students, ArrayList<Teacher> teachers, String key) {
+		int classroom = 0;
+		for (Teacher teacher : teachers) {
+			if (teacher.getTLastName().equals(key)) {
+				classroom = teacher.getClassroom();
+			}
+		}
 		for (Student student : students) {
-			if (student.gettLastName().equals(key)) {
+			if (student.getClassroom() == classroom) {
 				System.out.println(student.getStLastName() + ", " + student.getStFirstName());
+
 			}
 		}
 		System.out.println("---------------------------");
 	}
 
-	private static void SearchGrade(ArrayList<Student> students, int key) {
+	/*private static void SearchGrade(ArrayList<Student> students, int key) {
 		for (Student student : students) {
 			if (student.getGrade() == key) {
 				System.out.println(student.getStLastName() + ", " + student.getStFirstName());
