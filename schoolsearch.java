@@ -66,8 +66,13 @@ public class schoolsearch {
 						break;
 
 					case 'T':
-						key = fullCommand.substring(3);
-						SearchTeacher(students, teachers, key);
+						if (fullCommand.charAt(fullCommand.length() - 1) == 'G') {
+							key = fullCommand.substring(3,4);
+							SearchTeacherGrade(students, teachers, Integer.parseInt(key));
+						} else {
+							key = fullCommand.substring(3);
+							SearchTeacher(students, teachers, key);
+						}
 						break;
 
 					case 'B':
@@ -276,6 +281,7 @@ public class schoolsearch {
 		System.out.println("6: " + sixth);
 		System.out.println("---------------------------");
 	}
+
 	public static void Classroom(ArrayList<Student> students, int key) {
 		for (Student student : students) {
 			if (student.getClassroom() == key) {
@@ -292,5 +298,22 @@ public class schoolsearch {
 			}
 		}
 		System.out.println("---------------------------");
+	}
+
+	public static void SearchTeacherGrade(ArrayList<Student> students, ArrayList<Teacher> teachers, int key) {
+		ArrayList<Integer> rooms = new ArrayList();
+
+		for (Student student : students) {
+			if (student.getGrade() == key) {
+				if (!(rooms.contains(student.getClassroom()))) {
+					rooms.add(student.getClassroom());
+				}
+			}
+		}
+		for (Teacher teacher : teachers) {
+			if (rooms.contains(teacher.getClassroom())) {
+				System.out.println(teacher.getTLastName() + ", " + teacher.getTFirstName());
+			}
+		}
 	}
 }
