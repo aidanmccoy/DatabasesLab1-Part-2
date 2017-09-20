@@ -88,14 +88,14 @@ public class schoolsearch {
 						}
 						break;
 
-					/*case 'A':
+					case 'A':
 						key = fullCommand.substring(3);
 						GetAverage(students, Integer.parseInt(key));
 						break;
 
 					case 'I':
 						Info(students);
-						break; */
+						break;
 					case 'Q':
 						System.exit(0);
 						break;
@@ -213,7 +213,7 @@ public class schoolsearch {
 		System.out.println("---------------------------");
 	}
 
-	/*private static void GetAverage(ArrayList<Student> students, int key) {
+	private static void GetAverage(ArrayList<Student> students, int key) {
 		double total = 0;
 		int numStudents = 0;
 		for (Student student : students) {
@@ -263,5 +263,5 @@ public class schoolsearch {
 		System.out.println("5: " + fifth);
 		System.out.println("6: " + sixth);
 		System.out.println("---------------------------");
-	}*/
+	}
 }
