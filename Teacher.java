@@ -20,7 +20,7 @@ public class Teacher {
    }
 
    public void setClassroom(int classroom) {
-      this.classroom = classroom
+      this.classroom = classroom;
    }
 
    public void print() {

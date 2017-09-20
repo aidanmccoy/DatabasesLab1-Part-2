@@ -7,9 +7,12 @@ public class schoolsearch {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		Scanner sc = new Scanner(System.in);
-		Scanner fs = new Scanner(new File("students.txt"));
+		Scanner fsl = new Scanner(new File("list.txt"));
+		Scanner fst = new Scanner(new File("teachers.txt"));
+
 	
 
+		ArrayList<Teacher> teachers = new ArrayList();
 		ArrayList<Student> students = new ArrayList();
 
 		String fullCommand, key, stLastName, stFirstName, tLastName, tFirstName;
@@ -17,22 +20,33 @@ public class schoolsearch {
 		double gpa;
 		char action;
 
-		while (fs.hasNextLine()) {
+		while (fsl.hasNextLine()) {
 
-			Scanner fs2 = new Scanner(fs.nextLine()).useDelimiter(",");
-			stLastName = fs2.next();
-			stFirstName = fs2.next();
-			grade = fs2.nextInt();
-			classroom = fs2.nextInt();
-			bus = fs2.nextInt();
-			gpa = fs2.nextDouble();
-			tLastName = fs2.next();
-			tFirstName = fs2.next();
+			Scanner fsl2 = new Scanner(fsl.nextLine()).useDelimiter(",");
+			stLastName = fsl2.next();
+			stFirstName = fsl2.next();
+			grade = fsl2.nextInt();
+			classroom = fsl2.nextInt();
+			bus = fsl2.nextInt();
+			gpa = fsl2.nextDouble();
 
-			Student tempStudent = new Student(stLastName, stFirstName, grade, classroom, bus, gpa, tLastName,
-					tFirstName);
+			Student tempStudent = new Student(stLastName, (stFirstName.substring(1)), grade, classroom, bus, gpa);
 
+			tempStudent.print();
 			students.add(tempStudent);
+		}
+
+		while (fst.hasNextLine()) {
+
+			Scanner fst2 = new Scanner(fst.nextLine()).useDelimiter(", ");
+			tLastName = fst2.next();
+			tFirstName = fst2.next();
+			classroom = fst2.nextInt();
+
+			Teacher tempTeacher = new Teacher(tLastName, tFirstName, classroom);
+
+			//tempTeacher.print();
+			teachers.add(tempTeacher);
 		}
 		while (true) {
 			try {
@@ -44,14 +58,14 @@ public class schoolsearch {
 					case 'S':
 						if (fullCommand.charAt(fullCommand.length() - 1) == 'B') {
 							key = fullCommand.substring(3, fullCommand.length() - 2);
-							SearchStudentBus(students, key);
+							SearchStudentBus(students, teachers, key);
 						} else {
 							key = fullCommand.substring(3);
-							SearchStudent(students, key);
+							SearchStudent(students, teachers, key);
 						}
 						break;
 
-					case 'T':
+					/*case 'T':
 						key = fullCommand.substring(3);
 						SearchTeacher(students, key);
 						break;
@@ -81,7 +95,7 @@ public class schoolsearch {
 
 					case 'I':
 						Info(students);
-						break;
+						break; */
 					case 'Q':
 						System.exit(0);
 						break;
@@ -91,23 +105,27 @@ public class schoolsearch {
 					}
 				}
 			} catch (Exception e) {
-				System.out.println("Invalid Command");
+				System.out.println("Invalid Command...");
 			}
 		}
 	}
 
-	public static void SearchStudent(ArrayList<Student> students, String lastName) {
+	public static void SearchStudent(ArrayList<Student> students, ArrayList<Teacher> teachers, String lastName) {
 		for (Student student : students) {
 			if (student.getStLastName().equals(lastName)) {
-				System.out.println(student.getStLastName() + ", " + student.getStFirstName() + ", " + student.getGrade()
-						+ ", " + student.getClassroom() + ", " + student.gettLastName() + ", "
-						+ student.gettFirstName());
+				for (Teacher teacher : teachers) {
+					if (teacher.getClassroom() == student.getClassroom()) {
+						System.out.println(student.getStLastName() + ", " + student.getStFirstName() + ", " + student.getGrade()
+						+ ", " + student.getClassroom() + ", " + teacher.getTLastName() + ", "
+						+ teacher.getTFirstName());
+					}
+				}
 			}
 		}
 		System.out.println("---------------------------");
 	}
 
-	public static void SearchStudentBus(ArrayList<Student> students, String key) {
+	public static void SearchStudentBus(ArrayList<Student> students, ArrayList<Teacher> teachers, String key) {
 		for (Student student : students) {
 			if (student.getStLastName().equals(key)) {
 				System.out.println(student.getStLastName() + ", " + student.getStFirstName() + ", " + student.getBus());
@@ -116,7 +134,7 @@ public class schoolsearch {
 		System.out.println("---------------------------");
 	}
 
-	public static void SearchTeacher(ArrayList<Student> students, String key) {
+	/*public static void SearchTeacher(ArrayList<Student> students, String key) {
 		for (Student student : students) {
 			if (student.gettLastName().equals(key)) {
 				System.out.println(student.getStLastName() + ", " + student.getStFirstName());
@@ -230,5 +248,5 @@ public class schoolsearch {
 		System.out.println("5: " + fifth);
 		System.out.println("6: " + sixth);
 		System.out.println("---------------------------");
-	}
+	}*/
 }
