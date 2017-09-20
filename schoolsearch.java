@@ -73,22 +73,22 @@ public class schoolsearch {
 					/*case 'B':
 						key = fullCommand.substring(3);
 						SearchBus(students, Integer.parseInt(key));
-						break;
+						break;*/
 
 					case 'G':
 						if (fullCommand.charAt(fullCommand.length() - 1) == 'H') {
 							key = fullCommand.substring(3, 4);
-							SearchGradeHigh(students, Integer.parseInt(key));
+							SearchGradeHigh(students, teachers,  Integer.parseInt(key));
 						} else if (fullCommand.charAt(fullCommand.length() - 1) == 'L') {
 							key = fullCommand.substring(3, 4);
-							SearchGradeLow(students, Integer.parseInt(key));
+							SearchGradeLow(students, teachers, Integer.parseInt(key));
 						} else {
 							key = fullCommand.substring(3);
 							SearchGrade(students, Integer.parseInt(key));
 						}
 						break;
 
-					case 'A':
+					/*case 'A':
 						key = fullCommand.substring(3);
 						GetAverage(students, Integer.parseInt(key));
 						break;
@@ -150,7 +150,7 @@ public class schoolsearch {
 		System.out.println("---------------------------");
 	}
 
-	/*private static void SearchGrade(ArrayList<Student> students, int key) {
+	private static void SearchGrade(ArrayList<Student> students, int key) {
 		for (Student student : students) {
 			if (student.getGrade() == key) {
 				System.out.println(student.getStLastName() + ", " + student.getStFirstName());
@@ -159,16 +159,16 @@ public class schoolsearch {
 		System.out.println("---------------------------");
 	}
 
-	private static void SearchBus(ArrayList<Student> students, int key) {
+	/*private static void SearchBus(ArrayList<Student> students, int key) {
 		for (Student student : students) {
 			if (student.getBus() == key) {
 				System.out.println(student.getStLastName() + ", " + student.getStFirstName());
 			}
 		}
 		System.out.println("---------------------------");
-	}
+	} */
 
-	private static void SearchGradeLow(ArrayList<Student> students, int key) {
+	private static void SearchGradeLow(ArrayList<Student> students, ArrayList<Teacher> teachers, int key) {
 		Student lStudent = null;
 		for (Student student : students) {
 			if (student.getGrade() == key) {
@@ -181,12 +181,16 @@ public class schoolsearch {
 				}
 			}
 		}
-		System.out.println(lStudent.getStLastName() + ", " + lStudent.getStFirstName() + ", " + lStudent.getGpa() + ", "
-				+ lStudent.gettLastName() + ", " + lStudent.gettFirstName() + ", " + lStudent.getBus());
+		for (Teacher teacher : teachers) {
+			if (teacher.getClassroom() == lStudent.getClassroom()) {
+				System.out.println(lStudent.getStLastName() + ", " + lStudent.getStFirstName() + ", " + lStudent.getGpa() + ", "
+				+ teacher.getTLastName() + ", " + teacher.getTFirstName() + ", " + lStudent.getBus());
+			}
+		}
 		System.out.println("---------------------------");
 	}
 
-	private static void SearchGradeHigh(ArrayList<Student> students, int key) {
+	private static void SearchGradeHigh(ArrayList<Student> students, ArrayList<Teacher> teachers, int key) {
 
 		Student hStudent = null;
 		for (Student student : students) {
@@ -200,12 +204,16 @@ public class schoolsearch {
 				}
 			}
 		}
-		System.out.println(hStudent.getStLastName() + ", " + hStudent.getStFirstName() + ", " + hStudent.getGpa() + ", "
-				+ hStudent.gettLastName() + ", " + hStudent.gettFirstName() + ", " + hStudent.getBus());
+		for (Teacher teacher : teachers) {
+			if (teacher.getClassroom() == hStudent.getClassroom()) {
+				System.out.println(hStudent.getStLastName() + ", " + hStudent.getStFirstName() + ", " + hStudent.getGpa() + ", "
+				+ teacher.getTLastName() + ", " + teacher.getTFirstName() + ", " + hStudent.getBus());
+			}
+		}
 		System.out.println("---------------------------");
 	}
 
-	private static void GetAverage(ArrayList<Student> students, int key) {
+	/*private static void GetAverage(ArrayList<Student> students, int key) {
 		double total = 0;
 		int numStudents = 0;
 		for (Student student : students) {
