@@ -32,7 +32,7 @@ public class schoolsearch {
 
 			Student tempStudent = new Student(stLastName, (stFirstName.substring(1)), grade, classroom, bus, gpa);
 
-			tempStudent.print();
+			//tempStudent.print();
 			students.add(tempStudent);
 		}
 
@@ -48,9 +48,14 @@ public class schoolsearch {
 			//tempTeacher.print();
 			teachers.add(tempTeacher);
 		}
+      
+      PrintMenu();
+      System.out.println("Select search option:");
+
 		while (true) {
 			try {
-				System.out.println("Enter next search");
+            //PrintMenu();
+				//System.out.println("Enter next search (Press M to Display Options):");
 				fullCommand = sc.nextLine();
 				action = fullCommand.charAt(0);
 				if (fullCommand.length() > 0) {
@@ -87,7 +92,10 @@ public class schoolsearch {
 						} else if (fullCommand.charAt(fullCommand.length() - 1) == 'L') {
 							key = fullCommand.substring(3, 4);
 							SearchGradeLow(students, teachers, Integer.parseInt(key));
-						} else {
+						} else if (fullCommand.charAt(fullCommand.length() - 1) == 'T') {
+                     key = fullCommand.substring(3, 4);
+                     
+                  } else {
 							key = fullCommand.substring(3);
 							SearchGrade(students, Integer.parseInt(key));
 						}
@@ -112,6 +120,19 @@ public class schoolsearch {
 						}
 						break;
 
+               case 'E':
+                  Enrollment(students, teachers);
+                  break;
+
+               case 'D':
+                  key = fullCommand.substring(3);
+                  DataAnalysis(students, teachers, key);
+                  break;
+
+               case 'M':
+                  PrintMenu();
+                  break;
+
 					case 'Q':
 						System.exit(0);
 						break;
@@ -124,8 +145,23 @@ public class schoolsearch {
 			} catch (Exception e) {
 				System.out.println("Invalid Command...");
 			}
+         System.out.println("Enter next search (Press M to Display Options):");
 		}
 	}
+
+   private static void PrintMenu() {
+      System.out.println("S: <lastname> [B]");
+      System.out.println("T: <lastname>");
+      System.out.println("B: <number>");
+      System.out.println("G: <number> [H] | [L] | [T]");
+      System.out.println("A: <number>");
+      System.out.println("I");
+      System.out.println("C: <number> [T]");
+      System.out.println("E");
+      System.out.println("D: <lastname>");
+      System.out.println("Q");
+      //System.out.println("Select search option: ");
+   }
 
 	public static void SearchStudent(ArrayList<Student> students, ArrayList<Teacher> teachers, String lastName) {
 		for (Student student : students) {
@@ -316,4 +352,28 @@ public class schoolsearch {
 			}
 		}
 	}
+
+   public static void Enrollment(ArrayList<Student> students, ArrayList<Teacher> teachers) {
+      int tempClassroom = 0, lastClassroom = 0, enrolled = 0;
+      System.out.println("Finish this requirement.");
+      for (int i = 0; i < teachers.size(); i++) {
+         for (Teacher teacher : teachers) {
+            //teacher.getClassroom
+         }
+      }         
+   }
+
+   public static void DataAnalysis(ArrayList<Student> students, ArrayList<Teacher> teachers, String key) {
+      for (Student student : students) {
+         if (student.getStLastName().equals(key)) {
+            for (Teacher teacher : teachers) {
+               if (teacher.getClassroom() == student.getClassroom()) {
+                  System.out.println(student.getStLastName() + ", " + student.getStFirstName() + ", "
+                  + student.getGpa() + ", " + student.getGrade() + ", " + teacher.getTLastName() + ", "
+                  + teacher.getTFirstName() + ", " + student.getBus());
+               }
+            }
+         }
+      }
+   }
 }
