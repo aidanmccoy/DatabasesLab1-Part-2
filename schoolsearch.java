@@ -354,13 +354,43 @@ public class schoolsearch {
 	}
 
    public static void Enrollment(ArrayList<Student> students, ArrayList<Teacher> teachers) {
+      ArrayList<Integer> rooms = new ArrayList();
       int tempClassroom = 0, lastClassroom = 0, enrolled = 0;
-      System.out.println("Finish this requirement.");
-      for (int i = 0; i < teachers.size(); i++) {
-         for (Teacher teacher : teachers) {
-            //teacher.getClassroom
+      
+      for (Teacher teacher : teachers) {
+         if (!(rooms.contains(teacher.getClassroom()))) {
+            rooms.add(teacher.getClassroom());
          }
-      }         
+      }
+      
+      tempClassroom = FindMax(rooms);
+      
+      for (int i = 0; i < rooms.size(); i++) {
+         for (Integer room : rooms) {
+            if (room < tempClassroom && room > lastClassroom) {
+               tempClassroom = room;
+            }
+         }
+         for (Student student : students) {
+            if (student.getClassroom() == tempClassroom) {
+               enrolled++;
+            }  
+         }
+         System.out.println(tempClassroom + ": " + enrolled);
+         lastClassroom = tempClassroom;
+         tempClassroom = FindMax(rooms);
+         enrolled = 0;
+      }
+   }
+
+   private static int FindMax(ArrayList<Integer> rooms) {
+      int max = 0;
+      for (Integer room : rooms) {
+         if (room.intValue() > max) {
+            max = room.intValue();
+         }
+      }
+      return max;
    }
 
    public static void DataAnalysis(ArrayList<Student> students, ArrayList<Teacher> teachers, String key) {
