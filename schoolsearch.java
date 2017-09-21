@@ -94,7 +94,7 @@ public class schoolsearch {
 							SearchGradeLow(students, teachers, Integer.parseInt(key));
 						} else if (fullCommand.charAt(fullCommand.length() - 1) == 'T') {
                      key = fullCommand.substring(3, 4);
-                     
+                     SearchTeacherGrade(students, teachers, Integer.parseInt(key)); 
                   } else {
 							key = fullCommand.substring(3);
 							SearchGrade(students, Integer.parseInt(key));
