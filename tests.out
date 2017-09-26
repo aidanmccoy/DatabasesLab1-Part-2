@@ -1,0 +1,159 @@
+S: <lastname> [B]
+T: <lastname>
+B: <number>
+G: <number> [H] | [L] | [T]
+A: <number>
+I
+C: <number> [T]
+E
+D: <lastname>
+Q
+Select search option:
+S: HAVIR
+HAVIR, BOBBIE, 2, 108, HAMER, GAVIN
+---------------------------
+Enter next search (Press M to Display Options):
+S:DEKHTYAR
+---------------------------
+Enter next search (Press M to Display Options):
+S: CORKER B
+CORKER, CARTER, 53
+---------------------------
+Enter next search (Press M to Display Options):
+S: DEKHTYAR B
+---------------------------
+Enter next search (Press M to Display Options):
+T: FAFARD
+COOKUS, XUAN
+ELHADDAD, SHANTE
+SWEDLUND, SHARRI
+CIGANEK, MANIE
+COVINGTON, TOMAS
+EARLY, TORY
+LINHART, LELA
+---------------------------
+Enter next search (Press M to Display Options):
+T: SMITH
+---------------------------
+Enter next search (Press M to Display Options):
+G: 4
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+WORBINGTON, DEEDRA
+OGAS, ERVIN
+SPANICEK, KENDRA
+GUICE, CODI
+GLOR, HUNG
+GUM, NOAH
+MASSART, ELDON
+NOVICK, ROLLAND
+DURAND, CARLEE
+BEX, TAMESHA
+DELUNA, KRYSTAL
+COMO, ZANDRA
+---------------------------
+Enter next search (Press M to Display Options):
+G: 7
+---------------------------
+Enter next search (Press M to Display Options):
+B:51^[[D^[[D
+Invalid Command...
+Enter next search (Press M to Display Options):
+B: 51
+WOOLERY, NOLAN
+STERBACK, PETER
+LIBRANDI, TODD
+RAPOSE, ALONZO
+COVINGTON, TOMAS
+MULLINGS, LEIGHANN
+DURAND, CARLEE
+FRIEDSTROM, REED
+---------------------------
+Enter next search (Press M to Display Options):
+B: 70
+---------------------------
+Enter next search (Press M to Display Options):
+G: 6 H
+LAMKIN, TAMA, 3.23, NISTENDIRK, NANCY, 55
+---------------------------
+Enter next search (Press M to Display Options):
+G: 6 L
+KRAKE, VALENTIN, 2.78, GAMBREL, JAE, 56
+---------------------------
+Enter next search (Press M to Display Options):
+A: 6
+The average GPA for grade 6 is 2.9771428571428578
+---------------------------
+Enter next search (Press M to Display Options):
+A: 7
+The average GPA for grade 7 is NaN
+---------------------------
+Enter next search (Press M to Display Options):
+I
+0: 0
+1: 2
+2: 13
+3: 9
+4: 15
+5: 0
+6: 21
+---------------------------
+Enter next search (Press M to Display Options):
+C: 102
+RACANELLO, NOEL
+CORONADO, DIMPLE
+BOYTER, WAN
+KEMERER, ROSETTA
+DEMARTINI, DEWAYNE
+---------------------------
+Enter next search (Press M to Display Options):
+C: 90
+---------------------------
+Enter next search (Press M to Display Options):
+C: 102 T
+KERBS, BENITO
+---------------------------
+Enter next search (Press M to Display Options):
+C: 90 T
+Invalid Command...
+Enter next search (Press M to Display Options):
+G: 4 T
+COOL, REUBEN
+HANTZ, JED
+CHIONCHIO, PERLA
+Enter next search (Press M to Display Options):
+G: 7 T
+Enter next search (Press M to Display Options):
+E
+101: 1
+102: 5
+103: 2
+104: 2
+105: 6
+106: 2
+107: 7
+108: 11
+109: 5
+110: 2
+111: 9
+112: 8
+Enter next search (Press M to Display Options):
+D: CORKER
+CORKER, CARTER, 3.12, 4, HANTZ, JED, 53
+Enter next search (Press M to Display Options):
+D: DEKHTYAR
+Enter next search (Press M to Display Options):
+M
+S: <lastname> [B]
+T: <lastname>
+B: <number>
+G: <number> [H] | [L] | [T]
+A: <number>
+I
+C: <number> [T]
+E
+D: <lastname>
+Q
+Enter next search (Press M to Display Options):
+Q
